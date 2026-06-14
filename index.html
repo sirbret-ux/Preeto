@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Love You Jerry</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#080808;
+color:#ddd;
+font-family:'Cormorant Garamond',serif;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+padding:40px;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?q=80&w=1600');
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:5rem;
+font-family:'Great Vibes',cursive;
+color:#f1e7d0;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:700px;
+font-size:1.4rem;
+line-height:1.8;
+opacity:.9;
+}
+
+.enter-btn{
+margin-top:40px;
+padding:15px 40px;
+background:transparent;
+border:1px solid #c8b17a;
+color:#c8b17a;
+cursor:pointer;
+font-size:1rem;
+transition:.3s;
+}
+
+.enter-btn:hover{
+background:#c8b17a;
+color:black;
+}
+
+.section{
+padding:100px 20px;
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
+
+.section h2{
+font-size:3rem;
+margin-bottom:40px;
+font-family:'Great Vibes',cursive;
+color:#e4d4ab;
+}
+
+.typewriter{
+font-size:1.8rem;
+line-height:1.7;
+max-width:900px;
+margin:auto;
+min-height:120px;
+}
+
+.letter{
+margin-top:60px;
+}
+
+.letter img{
+width:100%;
+max-width:900px;
+border-radius:8px;
+box-shadow:0 0 40px rgba(0,0,0,.8);
+}
+
+.quote{
+padding:120px 30px;
+font-size:2rem;
+font-style:italic;
+max-width:900px;
+margin:auto;
+color:#f0e4c8;
+opacity:.95;
+}
+
+.comparison{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:60px;
+}
+
+.comparison img{
+width:100%;
+border-radius:8px;
+}
+
+.caption{
+margin-top:25px;
+font-size:1.5rem;
+color:#c8b17a;
+}
+
+.final{
+height:80vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.final h2{
+font-family:'Great Vibes',cursive;
+font-size:5rem;
+color:#f3e8d1;
+}
+
+.meow{
+margin-top:20px;
+font-size:1rem;
+cursor:pointer;
+opacity:.7;
+}
+
+.hidden-message{
+display:none;
+margin-top:30px;
+font-size:1.3rem;
+color:#c8b17a;
+}
+
+footer{
+padding:60px;
+text-align:center;
+opacity:.5;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:3.2rem;
+}
+
+.quote{
+font-size:1.4rem;
+}
+
+.comparison{
+grid-template-columns:1fr;
+}
+
+.final h2{
+font-size:3rem;
+}
+
+}
+
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:1.4s;
+}
+
+.fade.visible{
+opacity:1;
+transform:none;
+}
+
+#musicBtn{
+position:fixed;
+top:20px;
+right:20px;
+z-index:9999;
+background:rgba(0,0,0,.8);
+border:1px solid #c8b17a;
+color:#c8b17a;
+padding:10px 16px;
+cursor:pointer;
+font-family:'Cormorant Garamond',serif;
+border-radius:4px;
+}
+
+#musicBtn:hover{
+background:#c8b17a;
+color:black;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="Preeto - Bret Darkless.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero">
+
+<h1>Love You Jerry</h1>
+
+<p>
+When Preeto wrote me a love letter...
+<br>
+It has to be accessible from anywhere!
+</p>
+
+<button class="enter-btn" onclick="scrollToLetter()">
+Open The Letter
+</button>
+
+</section>
+
+<section class="section fade" id="letterSection">
+
+<h2>A Fragment Rescued From Time</h2>
+
+<div class="typewriter" id="typewriter"></div>
+
+<div class="letter">
+<img src="restored-letter.jpg" alt="Restored Letter">
+</div>
+
+</section>
+
+<section class="quote fade">
+“You are the first and last thing on my mind each & every day.”
+</section>
+
+<section class="quote fade">
+“I Love you for all that you are.”
+</section>
+
+<section class="quote fade">
+“Teri Billi...”
+</section>
+
+<section class="section fade">
+
+<h2>Time Left Its Mark</h2>
+
+<div class="comparison">
+
+<div>
+<img src="original-letter.jpg">
+<h3 style="margin-top:15px;">Original</h3>
+</div>
+
+<div>
+<img src="restored-letter.jpg">
+<h3 style="margin-top:15px;">Restored</h3>
+</div>
+
+</div>
+
+<div class="caption">
+Time creased the paper, not the sentiment.
+</div>
+
+</section>
+
+<section class="final">
+
+<h2>Love You Gulu</h2>
+
+<div class="meow" onclick="showMessage()">
+Meow.
+</div>
+
+<div class="hidden-message" id="secret">
+Some people become memories.
+<br><br>
+Some memories become homes.
+</div>
+
+</section>
+
+<footer>
+A fragment rescued from time.
+</footer>
+
+<script>
+
+function scrollToLetter(){
+document.getElementById('letterSection')
+.scrollIntoView({
+behavior:'smooth'
+});
+}
+
+const text=
+"A birthday. A letter. A lifetime ago.";
+
+let i=0;
+
+function typeWriter(){
+
+if(i<text.length){
+
+document.getElementById("typewriter").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,60);
+
+}
+
+}
+
+typeWriter();
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('visible');
+
+}
+
+});
+
+});
+
+document.querySelectorAll('.fade').forEach(el=>{
+observer.observe(el);
+});
+
+function showMessage(){
+
+document.getElementById("secret").style.display="block";
+
+}
+
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+musicBtn.addEventListener("click", () => {
+
+if(music.paused){
+
+music.play();
+musicBtn.innerHTML = "🔇 Pause Music";
+
+}else{
+
+music.pause();
+musicBtn.innerHTML = "🎵 Play Music";
+
+}
+
+});
+
+function scrollToLetter(){
+
+const music = document.getElementById("bgMusic");
+
+if(music.paused){
+music.play();
+}
+
+document.getElementById('letterSection')
+.scrollIntoView({
+behavior:'smooth'
+});
+
+}
+
+</script>
+
+<button id="musicBtn">
+🎵 Play Music
+</button>
+
+</body>
+</html>
